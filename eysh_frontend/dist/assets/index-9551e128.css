@@ -1,0 +1,1 @@
+.App{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px}.login,.subjects,.test,.scores,.payment,.admin{text-align:center}input,textarea,button{display:block;margin:10px auto;padding:10px;width:100%;max-width:300px}ul{list-style:none;padding:0}li{margin:10px 0}@media (max-width: 600px){.App{padding:10px}input,textarea,button{max-width:100%}}
