@@ -44,4 +44,8 @@
 - Purchase access packages
 - Admin can add questions
 
-# yesh-template
+# Admin
+curl -X POST http://localhost:3000/auth/admin/register \
+  -H "Content-Type: application/json" \
+  -d '{"email": "admin@example.com", "password": "yourpassword"}'
+
