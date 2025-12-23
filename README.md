@@ -3,11 +3,9 @@
 ## Features
 
 - Email login with OTP verification for users
-- Separate admin login with email and password
 - JWT authentication
 - Exam taking and scoring
 - Payment system with QR codes
-- Admin panel for managing subjects and questions
 
 ## Setup
 
@@ -48,4 +46,5 @@
 curl -X POST http://localhost:3000/auth/admin/register \
   -H "Content-Type: application/json" \
   -d '{"email": "admin@example.com", "password": "yourpassword"}'
+
 
