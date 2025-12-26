@@ -1,50 +1,62 @@
-# Eysh Score Test
+1 Вэбсайтын гол функцууд
 
-## Features
+    - Имэйлээр нэвтрэх ба OTP баталгаажуулалт: Хэрэглэгч имэйлээрээ нэвтэрч, OTP кодоор баталгаажуулна.
 
-- Email login with OTP verification for users
-- JWT authentication
-- Exam taking and scoring
-- Payment system with QR codes
+    - Админ нэвтрэлт: Админ өөрийн имэйл, нууц үгээр нэвтэрнэ.
 
-## Setup
+    - JWT Authentication: Аюулгүй байдлыг хангах токен суурьтай authentication.
 
-### Backend
+    - Шалгалт өгөх ба оноо авах: Хэрэглэгч сонгосон хичээлээр шалгалт өгч, оноогоо авна.
 
-1. Install dependencies: `npm install`
-2. Set up PostgreSQL database and run `schema.sql`
-3. Set environment variables: DB_USER, DB_PASSWORD, DB_NAME, EMAIL_USER, EMAIL_PASS, JWT_SECRET
-4. Run: `npm start`
+    - QR кодоор төлбөр хийх систем: Хэрэглэгч багц худалдан авахдаа QR код ашиглана.
 
-### Frontend
+    - Админ самбар: Хичээл, шалгалтын асуултуудыг нэмэх.
 
-1. Install dependencies: `npm install`
-2. Run: `npm run dev`
+2 Суулгах заавар
+Backend
 
-## Usage
+        Node багцуудыг суулгах: npm install
 
-- User login: Go to /login, enter email, receive OTP, verify
-- Admin login: Go to /admin-login, enter email and password
-- First admin: Use /auth/admin/register to create admin account
+        PostgreSQL-дээр eysh_db датабаз үүсгээд query таб дээр schema.sql доторх хүснэгтүүдийг үүсгэнэ.
 
-## Database Schema
+        PostgreSQL-н DB_USER, DB_PASSWORD, DB_NAME-г өөрийн датабазынхаар өөрчлөх.
 
-- users: id, email, password_hash (for admin), is_admin
-- otps: email, otp, expires_at, used
-- subjects, questions, scores, packages, user_packages
+        Серверийг ажиллуулахад: node ./server.js
 
-2. Run: `npm start`
+    Frontend
 
-## Usage
+        Node багцуудыг суулгах: npm install
 
-- Select a subject to take a test
-- View scores in chart format
-- Purchase access packages
-- Admin can add questions
+        Frontend-г асаахдаа: npm run dev
 
-# Admin
-curl -X POST http://localhost:3000/auth/admin/register \
-  -H "Content-Type: application/json" \
-  -d '{"email": "admin@example.com", "password": "yourpassword"}'
+3 Ашиглах заавар
 
+    Хэрэглэгчийн нэвтрэлт: имэйлээ оруулна, OTP авна, баталгаажуулна.
 
+    Админ бүртгэл: curl -X POST http://localhost:3000/auth/admin/register -H "Content-Type: application/json" -d '{"email": "admin@example.com", "password": "yourpassword"}'
+
+    Админ нэвтрэлт: admin-login дээр дарж имэйл, нууц үгээ оруулна.
+
+4 Хүснэгтүүдийн бүтэц
+
+    users: id, email, password_hash (админд), is_admin
+
+    otps: email, otp, expires_at, used
+
+    subjects: id, name, duration
+
+    questions: id, subject_id, question, options, correct_answer
+
+    scores: id, user_id, subject_id, score, total, created_at
+
+    packages: id, name, duration, price
+
+    user_packages: id, user_id, package_id, expiry
+
+5 ашиглах заавар
+
+    Админ шинэ асуулт нэмэх
+
+    Хичээл сонгож шалгалт өгөх
+
+    Оноогоо графикаар харах
