@@ -28,17 +28,17 @@ function Payment() {
   };
 
   return (
-    <div className="payment">
-      <h2>Purchase Packages</h2>
-      <ul>
+    <div className="payment" style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#ffffff', color: '#333333', padding: '20px', border: '1px solid #cccccc', maxWidth: '900px', margin: '0 auto', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Purchase Packages</h2>
+      <ul style={{ listStyle: 'disc', paddingLeft: '20px' }}>
         {packages.map(pkg => (
-          <li key={pkg.id}>
+          <li key={pkg.id} style={{ margin: '10px 0', padding: '10px', backgroundColor: '#f9f9f9', border: '1px solid #dddddd', borderRadius: '4px' }}>
             {pkg.name} - ${pkg.price}
-            <button onClick={() => purchase(pkg.id)}>Purchase</button>
+            <button onClick={() => purchase(pkg.id)} style={{ marginLeft: '10px', padding: '5px 10px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Purchase</button>
           </li>
         ))}
       </ul>
-      {qrCode && <QRCode value={qrCode} size={500} />}
+      {qrCode && <div style={{ textAlign: 'center', marginTop: '20px' }}><QRCode value={qrCode} size={500} /></div>}
     </div>
   );
 }

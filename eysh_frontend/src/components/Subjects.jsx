@@ -27,20 +27,21 @@ function Subjects() {
   if (!user) return null;
 
   return (
-    <div className="subjects">
-      <h2>Subjects</h2>
-      <p>Welcome, {user.email}</p>
-      <button onClick={logout}>Logout</button>
-      <ul>
+    <div className="subjects" style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#ffffff', color: '#333333', padding: '20px', border: '1px solid #cccccc', maxWidth: '900px', margin: '0 auto', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Subjects</h2>
+      <p style={{ marginBottom: '20px' }}>Welcome, {user.email}</p>
+      <button onClick={logout} style={{ display: 'block', margin: '10px 0', padding: '10px 15px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Logout</button>
+      <ul style={{ listStyle: 'disc', paddingLeft: '20px' }}>
         {subjects.map(subject => (
-          <li key={subject.id}>
-            <Link to={`/test/${subject.id}`}>{subject.name}</Link>
+          <li key={subject.id} style={{ margin: '10px 0', padding: '10px', backgroundColor: '#f9f9f9', border: '1px solid #dddddd', borderRadius: '4px' }}>
+            <Link to={`/test/${subject.id}`} style={{ color: '#0078d7', textDecoration: 'none' }}>{subject.name}</Link>
           </li>
         ))}
       </ul>
-      <Link to="/scores">View Scores</Link>
-      <Link to="/payment">Purchase Access</Link>
-      {user.is_admin && <Link to="/admin">Admin Panel</Link>}
+      <div style={{ marginTop: '20px' }}>
+        <Link to="/scores" style={{ display: 'block', margin: '5px 0', color: '#0078d7', textDecoration: 'none' }}>View Scores</Link>
+        <Link to="/payment" style={{ display: 'block', margin: '5px 0', color: '#0078d7', textDecoration: 'none' }}>Purchase Access</Link>
+      </div>
     </div>
   );
 }

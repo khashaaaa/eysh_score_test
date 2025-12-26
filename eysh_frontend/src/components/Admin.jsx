@@ -110,34 +110,36 @@ function Admin() {
   if (!user || !user.is_admin) return null;
 
   return (
-    <div className="admin">
-      <button onClick={logout}>Logout</button>
-      <Link to="/">Back to Subjects</Link>
-      <h2>Add Subject</h2>
+    <div className="admin" style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#ffffff', color: '#333333', padding: '20px', border: '1px solid #cccccc', maxWidth: '900px', margin: '0 auto', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+      <button onClick={logout} style={{ display: 'block', margin: '10px 0', padding: '10px 15px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Logout</button>
+      <Link to="/" style={{ display: 'block', margin: '10px 0', color: '#0078d7', textDecoration: 'none' }}>Back to Subjects</Link>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Add Subject</h2>
       <input
         type="text"
         placeholder="Subject Name"
         value={newSubject}
         onChange={(e) => setNewSubject(e.target.value)}
+        style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px' }}
       />
-      <button onClick={addSubject}>Add Subject</button>
+      <button onClick={addSubject} style={{ display: 'block', margin: '10px 0', padding: '10px 15px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Add Subject</button>
 
-      <h2>Set Exam Durations</h2>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Set Exam Durations</h2>
       {subjects.map(sub => (
-        <div key={sub.id}>
-          <label>{sub.name}: </label>
+        <div key={sub.id} style={{ margin: '10px 0', padding: '10px', backgroundColor: '#f9f9f9', border: '1px solid #dddddd', borderRadius: '4px' }}>
+          <label style={{ marginRight: '10px' }}>{sub.name}: </label>
           <input
             type="number"
             value={durations[sub.id] || 3600}
             onChange={(e) => setDurations({ ...durations, [sub.id]: parseInt(e.target.value) })}
+            style={{ padding: '5px', border: '2px solid #aaaaaa', borderRadius: '4px', marginRight: '10px' }}
           />
           <span> seconds</span>
-          <button onClick={() => updateDuration(sub.id, durations[sub.id])}>Update</button>
+          <button onClick={() => updateDuration(sub.id, durations[sub.id])} style={{ padding: '5px 10px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Update</button>
         </div>
       ))}
 
-      <h2>Add Question</h2>
-      <select value={subjectId} onChange={(e) => setSubjectId(e.target.value)}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Add Question</h2>
+      <select value={subjectId} onChange={(e) => setSubjectId(e.target.value)} style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px' }}>
         <option value="">Select Subject</option>
         {subjects.map(sub => (
           <option key={sub.id} value={sub.id}>{sub.name}</option>
@@ -147,6 +149,7 @@ function Admin() {
         placeholder="Question"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
+        style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px', height: '80px' }}
       />
       {options.map((opt, i) => (
         <input
@@ -159,6 +162,7 @@ function Admin() {
             newOpts[i] = e.target.value;
             setOptions(newOpts);
           }}
+          style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px' }}
         />
       ))}
       <input
@@ -166,11 +170,12 @@ function Admin() {
         placeholder="Correct Answer"
         value={correctAnswer}
         onChange={(e) => setCorrectAnswer(e.target.value)}
+        style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px' }}
       />
-      <button onClick={addQuestion}>Add Question</button>
+      <button onClick={addQuestion} style={{ display: 'block', margin: '10px 0', padding: '10px 15px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Add Question</button>
 
-      <h2>Bulk Add Questions</h2>
-      <select value={selectedSubjectForBulk} onChange={(e) => setSelectedSubjectForBulk(e.target.value)}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Bulk Add Questions</h2>
+      <select value={selectedSubjectForBulk} onChange={(e) => setSelectedSubjectForBulk(e.target.value)} style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '300px' }}>
         <option value="">Select Subject</option>
         {subjects.map(sub => (
           <option key={sub.id} value={sub.id}>{sub.name}</option>
@@ -181,8 +186,9 @@ function Admin() {
         value={bulkQuestions}
         onChange={(e) => setBulkQuestions(e.target.value)}
         rows="20"
+        style={{ display: 'block', margin: '10px 0', padding: '10px', border: '2px solid #aaaaaa', borderRadius: '4px', width: '100%', maxWidth: '500px' }}
       />
-      <button onClick={addBulkQuestions}>Add Bulk Questions</button>
+      <button onClick={addBulkQuestions} style={{ display: 'block', margin: '10px 0', padding: '10px 15px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Add Bulk Questions</button>
     </div>
   );
 }
