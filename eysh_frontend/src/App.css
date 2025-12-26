@@ -1,37 +1,77 @@
 .App {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
+  font-family: 'Times New Roman', serif;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
+  background: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .login, .subjects, .test, .scores, .payment, .admin {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
 input, textarea, button {
   display: block;
-  margin: 10px auto;
-  padding: 10px;
+  margin: 12px auto;
+  padding: 12px 16px;
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
+  border: 2px solid #aaaaaa;
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #666666;
+  outline: none;
+}
+
+button {
+  background: #dddddd;
+  color: #333333;
+  border: 2px solid #aaaaaa;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #cccccc;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 20px;
 }
 
 li {
-  margin: 10px 0;
+  margin: 12px 0;
+  padding: 12px;
+  background: #f9f9f9;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 }
 
 @media (max-width: 600px) {
   .App {
-    padding: 10px;
+    padding: 20px 10px;
   }
 
   input, textarea, button {
     max-width: 100%;
   }
 }
+

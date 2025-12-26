@@ -39,36 +39,36 @@ function Scores() {
   };
 
   return (
-    <div className="scores">
-      <h2>Your Scores</h2>
+    <div className="scores" style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#ffffff', color: '#333333', padding: '20px', border: '1px solid #cccccc', maxWidth: '900px', margin: '0 auto', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Your Scores</h2>
       {profile && (
-        <div className="profile">
-          <h3>Profile</h3>
-          <p>Email: {profile.email}</p>
-          {profile.phone_number && <p>Phone: {profile.phone_number}</p>}
-          <p>Joined: {new Date(profile.created_at).toLocaleDateString()}</p>
+        <div className="profile" style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#f9f9f9', border: '1px solid #dddddd', borderRadius: '4px' }}>
+          <h3 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '10px', textDecoration: 'underline' }}>Profile</h3>
+          <p style={{ margin: '5px 0' }}>Email: {profile.email}</p>
+          {profile.phone_number && <p style={{ margin: '5px 0' }}>Phone: {profile.phone_number}</p>}
+          <p style={{ margin: '5px 0' }}>Joined: {new Date(profile.created_at).toLocaleDateString()}</p>
         </div>
       )}
-      <Bar data={data} />
-      <h3>Score Details</h3>
-      <table>
+      <div style={{ marginBottom: '20px' }}><Bar data={data} /></div>
+      <h3 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '10px', textDecoration: 'underline' }}>Score Details</h3>
+      <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
         <thead>
           <tr>
-            <th>Subject</th>
-            <th>Score</th>
-            <th>Percentage</th>
-            <th>Rank</th>
-            <th>Date</th>
+            <th style={{ padding: '10px', border: '1px solid #dddddd', backgroundColor: '#f9f9f9', textAlign: 'left' }}>Subject</th>
+            <th style={{ padding: '10px', border: '1px solid #dddddd', backgroundColor: '#f9f9f9', textAlign: 'left' }}>Score</th>
+            <th style={{ padding: '10px', border: '1px solid #dddddd', backgroundColor: '#f9f9f9', textAlign: 'left' }}>Percentage</th>
+            <th style={{ padding: '10px', border: '1px solid #dddddd', backgroundColor: '#f9f9f9', textAlign: 'left' }}>Rank</th>
+            <th style={{ padding: '10px', border: '1px solid #dddddd', backgroundColor: '#f9f9f9', textAlign: 'left' }}>Date</th>
           </tr>
         </thead>
         <tbody>
           {scores.map((s, i) => (
             <tr key={i}>
-              <td>{s.name}</td>
-              <td>{s.score}/{s.total}</td>
-              <td>{((s.score / s.total) * 100).toFixed(1)}%</td>
-              <td>{s.rank}</td>
-              <td>{new Date(s.created_at).toLocaleString()}</td>
+              <td style={{ padding: '10px', border: '1px solid #dddddd' }}>{s.name}</td>
+              <td style={{ padding: '10px', border: '1px solid #dddddd' }}>{s.score}/{s.total}</td>
+              <td style={{ padding: '10px', border: '1px solid #dddddd' }}>{((s.score / s.total) * 100).toFixed(1)}%</td>
+              <td style={{ padding: '10px', border: '1px solid #dddddd' }}>{s.rank}</td>
+              <td style={{ padding: '10px', border: '1px solid #dddddd' }}>{new Date(s.created_at).toLocaleString()}</td>
             </tr>
           ))}
         </tbody>

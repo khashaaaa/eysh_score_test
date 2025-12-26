@@ -58,26 +58,27 @@ function Test() {
   };
 
   return (
-    <div className="test">
-      <h2>Test</h2>
-      <div className="timer">Time remaining: {formatTime(timeLeft)}</div>
+    <div className="test" style={{ fontFamily: 'Times New Roman, serif', backgroundColor: '#ffffff', color: '#333333', padding: '20px', border: '1px solid #cccccc', maxWidth: '900px', margin: '0 auto', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+      <h2 style={{ fontWeight: 'bold', color: '#222222', marginBottom: '20px', textDecoration: 'underline' }}>Test</h2>
+      <div className="timer" style={{ textAlign: 'center', marginBottom: '20px' }}>Time remaining: {formatTime(timeLeft)}</div>
       {questions.map(q => (
-        <div key={q.id}>
-          <p>{q.question}</p>
+        <div key={q.id} style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#f9f9f9', border: '1px solid #dddddd', borderRadius: '4px' }}>
+          <p style={{ margin: '0 0 10px 0' }}>{q.question}</p>
           {q.options.map((opt, i) => (
-            <label key={i}>
+            <label key={i} style={{ display: 'block', margin: '5px 0' }}>
               <input
                 type="radio"
                 name={q.id}
                 value={opt}
                 onChange={(e) => setAnswers({ ...answers, [q.id]: e.target.value })}
+                style={{ marginRight: '10px' }}
               />
               {opt}
             </label>
           ))}
         </div>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit} style={{ display: 'block', margin: '20px auto', padding: '12px 16px', backgroundColor: '#dddddd', color: '#333333', border: '2px solid #aaaaaa', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>Submit</button>
     </div>
   );
 }
